@@ -6,32 +6,32 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //// console greeting
-            //Console.WriteLine("Howdy Y'all!!");
-            //Console.ReadKey(); // What happens if you run the app without this line?
+            // console greeting
+            Console.WriteLine("Howdy Y'all!!");
+            Console.ReadKey(); // What happens if you run the app without this line?
 
-            //// animal syllables 
-            //var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan", "Bat" };
-            //var vowels = new[] { 'a', 'e', 'i', 'o', 'u', 'y' };
-            //foreach (var animal in animals)
-            //{
-            //    var countOfVowels = 0;
-            //    foreach (var animalChar in animal)
-            //    {
-            //        foreach (var vowel in vowels)
-            //        {
-            //            if (vowel == animalChar)
-            //            {
-            //                countOfVowels++;
-            //            }
-            //        }
-            //    }
-            //    if (countOfVowels >= 2)
-            //    {
-            //        Console.WriteLine(animal);
-            //        Console.ReadLine();
-            //    }
-            //}
+            // animal syllables 
+            var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan", "Bat" };
+            var vowels = new[] { 'a', 'e', 'i', 'o', 'u', 'y' };
+            foreach (var animal in animals)
+            {
+                var countOfVowels = 0;
+                foreach (var animalChar in animal)
+                {
+                    foreach (var vowel in vowels)
+                    {
+                        if (vowel == animalChar)
+                        {
+                            countOfVowels++;
+                        }
+                    }
+                }
+                if (countOfVowels >= 2)
+                {
+                    Console.WriteLine(animal);
+                    Console.ReadLine();
+                }
+            }
 
             // command line arguments
             //var arguments = new []{ "Southern", "British", "Australian"};
@@ -43,8 +43,19 @@ namespace HelloWorld
             {
                 if (argument.ToLower() == dialect.ToLower())
                 {
-                    Console.WriteLine($"Your dialect: {dialect}");
                     otherDialect = false;
+                    if (dialect == "Southern")
+                    {
+                        Console.WriteLine("Hey Y'all!");
+                    }
+                    if (dialect == "British")
+                    {
+                        Console.WriteLine("Cheers mate");
+                    }
+                    if (dialect == "Australian")
+                    {
+                        Console.WriteLine("G'day mate");
+                    }
                     break;
                 }
                 else
