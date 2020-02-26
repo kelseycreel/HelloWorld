@@ -7,11 +7,18 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             // console greeting
-            Console.WriteLine("Howdy Y'all!!");
-            Console.ReadKey(); // What happens if you run the app without this line?
+            Console.WriteLine("What's your name?");
+            var name = Console.ReadLine();
+            Console.WriteLine($"Hi {name}");
+
+            var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan", "Bat" };
+            var index = new Random().Next(animals.Length);
+
+            Console.WriteLine("What's your favorite color?");
+            var color = Console.ReadLine();
+            Console.WriteLine($"Would you like a {color} {animals[index]}?");
 
             // animal syllables 
-            var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan", "Bat" };
             var vowels = new[] { 'a', 'e', 'i', 'o', 'u', 'y' };
             foreach (var animal in animals)
             {
@@ -29,7 +36,7 @@ namespace HelloWorld
                 if (countOfVowels >= 2)
                 {
                     Console.WriteLine(animal);
-                    Console.ReadLine();
+                    Console.ReadKey();
                 }
             }
 
@@ -38,36 +45,49 @@ namespace HelloWorld
 
             Console.WriteLine($"Choose a dialect: {args[0]}, {args[1]}, {args[2]}");
             var dialect = Console.ReadLine();
-            var otherDialect = false;
             foreach (var argument in args)
             {
                 if (argument.ToLower() == dialect.ToLower())
                 {
-                    otherDialect = false;
-                    if (dialect == "Southern")
+                    switch (dialect)
                     {
-                        Console.WriteLine("Hey Y'all!");
+                        case "Southern":
+                            Console.WriteLine("Hey Y'all!");
+                            break;
+
+                        case "British":
+                            Console.WriteLine("Cheers mate");
+                            break;
+                        case "Australian":
+                            Console.WriteLine("G'day mate");
+                            break;
+                        default:
+                            Console.WriteLine("Oops! You have to choose one of MY dialects!");
+                            break;
                     }
-                    if (dialect == "British")
-                    {
-                        Console.WriteLine("Cheers mate");
-                    }
-                    if (dialect == "Australian")
-                    {
-                        Console.WriteLine("G'day mate");
-                    }
-                    break;
-                }
-                else
-                {
-                    otherDialect = true;
                 }
             } 
-            if (otherDialect)
-            {
-                Console.WriteLine("Oops! You have to choose one of MY dialects!");
-            }
             Console.ReadLine();
+
+            //ConsoleKeyInfo enteredKey;
+
+            //do
+            //{
+            //    enteredKey = Console.ReadKey();
+            //    Console.WriteLine($"You pressed the {enteredKey.Key.ToString()} key");
+
+            //} while (enteredKey.Key != ConsoleKey.Escape);
+
+            //string sentence;
+
+            //do
+            //{
+            //    Console.WriteLine("Type in a sentence. Press enter when done.");
+            //    sentence = Console.ReadLine();
+            //    Console.WriteLine($"You entered the sentence: {sentence}");
+
+            //} while (sentence != "quit");
+
         }
     }
 }
